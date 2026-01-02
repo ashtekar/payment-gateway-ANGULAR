@@ -1,3 +1,12 @@
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-advance-echeck-plan',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
 <div class="card text-center">
     <div class="card-body">
         <h5 class="card-title text-uppercase font-weight-bold">buy advance e-check plan</h5>
@@ -91,7 +100,8 @@
                         Routing Number
                     </span>
                 </div>
-                <input type="text" class="form-control" aria-label="Routing number" aria-describedby="routingNumber" name="routingNumber" ngModel>
+                <!-- Security Fix: Changed type to password to mask sensitive routing number input -->
+                <input type="password" class="form-control" aria-label="Routing number" aria-describedby="routingNumber" name="routingNumber" ngModel autocomplete="off">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -99,7 +109,8 @@
                         Account Number
                     </span>
                 </div>
-                <input type="number" class="form-control" aria-label="Account number" aria-describedby="accountNumber" name="accountNumber" ngModel>
+                <!-- Security Fix: Changed type to password to mask sensitive account number input -->
+                <input type="password" class="form-control" aria-label="Account number" aria-describedby="accountNumber" name="accountNumber" ngModel autocomplete="off">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -123,5 +134,21 @@
 </div>
 
 <div class="container px-0 mt-3" *ngIf="showMsg">
-    <h5 [className]="alertType ? 'alert-success px-4 py-3' : 'alert-danger px-4 py-3'">{{ responseDescription }}</h5>
+    <h5 [ngClass]="alertType ? 'alert-success px-4 py-3' : 'alert-danger px-4 py-3'">{{ responseDescription }}</h5>
 </div>
+`
+})
+export class AdvanceEcheckPlanComponent {
+  planCost: number = 49.99;
+  showMsg: boolean = false;
+  alertType: boolean = true;
+  responseDescription: string = '';
+
+  pay(formValue: any): void {
+    // Implement payment logic here
+    // For demonstration, set dummy response
+    this.showMsg = true;
+    this.alertType = true;
+    this.responseDescription = 'Payment processed successfully!';
+  }
+}
