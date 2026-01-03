@@ -83,7 +83,7 @@
                         Check Number
                     </span>
                 </div>
-                <input type="number" class="form-control" aria-label="Check number" aria-describedby="checkNumber" name="checkNumber" ngModel>
+                <input type="text" class="form-control" aria-label="Check number" aria-describedby="checkNumber" name="checkNumber" ngModel autocomplete="off" inputmode="numeric" pattern="[0-9]*">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -91,7 +91,7 @@
                         Routing Number
                     </span>
                 </div>
-                <input type="text" class="form-control" aria-label="Routing number" aria-describedby="routingNumber" name="routingNumber" ngModel>
+                <input type="password" class="form-control" aria-label="Routing number" aria-describedby="routingNumber" name="routingNumber" ngModel autocomplete="new-password" inputmode="numeric" pattern="[0-9]*" maxlength="9" minlength="9" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -99,7 +99,7 @@
                         Account Number
                     </span>
                 </div>
-                <input type="number" class="form-control" aria-label="Account number" aria-describedby="accountNumber" name="accountNumber" ngModel>
+                <input type="password" class="form-control" aria-label="Account number" aria-describedby="accountNumber" name="accountNumber" ngModel autocomplete="new-password" inputmode="numeric" pattern="[0-9]*" maxlength="17" minlength="4" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
